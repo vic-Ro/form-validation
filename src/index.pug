@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Form validation
+  body
+    .container
+      form(action='#' method='post').form#form
+        .form__field.group-username
+          input(type='text' id='username' name='username' placeholder=' ').username.form__input
+          label(for='username').form__label Username
+          span.error-msg Username must be 8 to 20 characters and must include numbers and letters
+        .form__field.group-email
+          input(type='email' id='email' name='email' placeholder=' ').email.form__input
+          label(for='email').form__label Email:
+          span.error-msg Enter a valid email
+        .form__field.group-country
+          select(id='country' name='country').country.form__input
+          label(for='country').form__label.form__label--select Country:
+          span.error-msg You must select one country
+        .form__field.group-zipcode
+          input(type='number' id='zipcode' name='zipcode' placeholder=' ').zipcode.form__input
+          label(for='zipcode').form__label Zip code:
+          span.error-msg Enter a valid zip code
+        .form__field.group-password
+          input(type='password' id='password' name='password' placeholder=' ').password.form__input
+          label(for='password').form__label Password:
+          span.error-msg Should have lowercase letter, uppercase letter, number, special character and be at least 8 characters long
+        .form__field.group-confirmpassword
+          input(type='password' id='confirmpassword' name='confirmpassword' placeholder=' ').confirmpassword.form__input
+          label(for='confirmpassword').form__label Repeat password:
+          span.error-msg Passwords don't match
+        .form__field.group-button
+          button(type='submit' id='button-submit').button.button-submit Submit
+          span.error-msg Check your form, please
+          span.submit-msg Sent!

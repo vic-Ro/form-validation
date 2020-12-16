@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300&display=swap');
+
+$background: rgb(255, 255, 255);
+$offwhite: rgb(250, 250, 250);
+$text: rgb(175, 175, 175);
+$textdarker: rgb(0, 0, 0);
+$gray: rgb(125, 125, 125);
+$red: rgb(200, 20, 90);
+$green: rgb(20, 200, 90);
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100vh;
+  background-color: $background;
+  color: $text;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(3, 300px);
+  &__field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  &__label {
+    background-color: #fff;
+    font-size: 1.2em;
+    font-weight: 100;
+    left: .5em;
+    margin-bottom: .5em;
+    padding-right: .5em;
+    position: absolute;
+    top: .4em;
+    transition: font-size .3s, padding-left .3s, top .3s, z-index .3s;
+  }
+  &__input {
+    background-color: transparent;
+    border: 1px solid $text;
+    color: $textdarker;
+    font-size: 1.1em;
+    outline: none;
+    padding: .5em;
+    z-index: 100;
+    &:hover {
+      border-color:$gray;
+    }
+    &:focus {
+      border-color: lightblue;
+    }
+    &:focus + label,
+    &:not(:placeholder-shown) + label,
+    .form__label--select {
+      z-index: 200;
+      font-size: .7em;
+      top: -.5em;
+      padding-left: .5em;
+    }
+  }
+}
+.group-button {
+  align-items: center;
+  align-self: center;
+  grid-column: 2 / 3;
+}
+
+.error-msg,
+.submit-msg {
+  color: $red;
+  display: none;
+  font-size: .9em;
+  margin-top: .2em;
+}
+.error-msg {
+  color: $red;
+}
+.submit-msg {
+  color: $green;
+}
+
+.button {
+  border: 1px solid gray;
+  background-color: $offwhite;
+  cursor: pointer;
+  outline: none;
+  padding: .5em;
+  transition: transform .2s;
+  width: 80px;
+  &:active {
+    transform: scale(.97);
+    border-color: lightblue;
+  }
+}
+
+.good {
+  color: $green;
+
+  & > input {
+    border-color: $green;
+  }
+}
+
+.bad {
+  color: $red;
+  & > input {
+    border-color: $red;
+  }
+}
+
+.show {
+  display: block;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
